@@ -24,6 +24,30 @@
             bindings = <&kp RU_CYRILLIC_HA>;
             key-positions = <19 20>;
         };
+
+        dot_dot_en {
+            bindings = <&kp COLON>;
+            key-positions = <5 17>;
+            layers = <0>;
+        };
+
+        dot_coma_en {
+            bindings = <&kp SEMI>;
+            key-positions = <6 18>;
+            layers = <0>;
+        };
+
+        dot_dot_ru {
+            bindings = <&kp LS(N6)>;
+            key-positions = <5 17>;
+            layers = <1>;
+        };
+
+        dot_coma_ru {
+            bindings = <&kp LS(NUMBER_4)>;
+            key-positions = <6 18>;
+            layers = <1>;
+        };
     };
 
     macros {
