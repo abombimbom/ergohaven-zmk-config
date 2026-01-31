@@ -48,6 +48,18 @@
             key-positions = <6 18>;
             layers = <1>;
         };
+
+        defis {
+            bindings = <&kp MINUS>;
+            key-positions = <4 16>;
+            layers = <0 1>;
+        };
+
+        underscore {
+            bindings = <&kp LS(MINUS)>;
+            key-positions = <7 19>;
+            layers = <0 1>;
+        };
     };
 
     macros {
