@@ -2,15 +2,10 @@ manifest:
   remotes:
     - name: ergohaven
       url-base: https://github.com/ergohaven
-    - name: zettaface
-      url-base: https://github.com/zettaface
   projects:
     - name: ergohaven-zmk
       remote: ergohaven
       revision: main
       import: config/west.yml
-    - name: zmk-input-processor-keybind
-      remote: zettaface
-      revision: main
   self:
     path: config
