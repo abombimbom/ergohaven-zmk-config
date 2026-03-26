@@ -10,6 +10,3 @@ include:
       -DCONFIG_PMW3610_INVERT_X=y
       -DCONFIG_PMW3610_INVERT_Y=y
     artifact-name: trackball_royal-ergohaven-zmk
-
-  - board: ergohaven
-    shield: settings_reset
