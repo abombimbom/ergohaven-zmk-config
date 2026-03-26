@@ -24,7 +24,6 @@
 
     combos {
         compatible = "zmk,combos";
-
         base_combo {
             bindings = <&mkp MB3>;
             key-positions = <0 1>;
@@ -32,18 +31,14 @@
     };
 
     behaviors {
-        // Левая верхняя: tap=MB2, hold=scroll(layer 1)
-        // используется внутри tap-dance ниже
-
         lt_mb2: lt_mb2 {
             compatible = "zmk,behavior-hold-tap";
+            label = "LT_MB2";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&mkp>;
         };
-
-        // Левая верхняя: 1 tap=MB2 / hold=scroll / быстрый tap+hold=MEH
 
         td_left_top: td_left_top {
             compatible = "zmk,behavior-tap-dance";
@@ -53,8 +48,6 @@
             bindings = <&lt_mb2 1 MB2>, <&kp LS(LA(LCTRL))>;
         };
 
-        // Правая средняя: tap=MB3, hold=Ctrl
-
         ctrl_mb3: ctrl_mb3 {
             compatible = "zmk,behavior-hold-tap";
             label = "CTRL_MB3";
@@ -63,8 +56,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&mkp>;
         };
-
-        // Левая средняя: tap=переключить text_mode(layer 3), hold=text_mode пока зажата
 
         dpi_text: dpi_text {
             compatible = "zmk,behavior-hold-tap";
@@ -99,7 +90,6 @@
 &dpi_text 3 3  &ctrl_mb3 LCTRL MB3
 &adj1          &adj2
             >;
-
             display-name = "Base";
         };
 
@@ -109,7 +99,6 @@
 &trans  &trans
 &trans  &trans
             >;
-
             display-name = "Scroll";
         };
 
@@ -119,7 +108,6 @@
 &trans  &trans
 &trans  &trans
             >;
-
             display-name = "Sniper";
         };
 
@@ -129,16 +117,7 @@
 &trans  &trans
 &trans  &trans
             >;
-
             display-name = "Text";
-        };
-
-        layer_4 {
-            bindings = <
-&trans  &trans
-&trans  &trans
-&trans  &trans
-            >;
         };
     };
 
@@ -152,21 +131,15 @@
     };
 };
 
-// CPI снижен вдвое: 500 вместо 1000
-// Включи "Повысить точность указателя" в Windows для ускорения
-
 &trackball { cpi = <500>; };
 
 &trackball_listener {
-    // Убраны скейлеры: CPI 500 уже достаточно медленный базово
-
     input-processors = <&sensor_rotation>;
 
     scroller {
         layers = <1>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            // Делитель 1/16 вместо 1/32 — компенсация вдвое сниженного CPI,
             <&zip_xy_scaler 1 16>,
             <&zip_xy_to_scroll_mapper &zip_scroll_snap>;
     };
@@ -178,9 +151,6 @@
 
     text_mode {
         layers = <3>;
-
-        // Очень медленный курсор для точной работы с текстом
-
         input-processors = <&zip_xy_scaler 1 8>;
     };
 };
