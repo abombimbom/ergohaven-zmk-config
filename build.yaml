@@ -1,3 +1,5 @@
+---
+include:
   - board: ergohaven
     shield: trackball
     keymap: trackball_royal
