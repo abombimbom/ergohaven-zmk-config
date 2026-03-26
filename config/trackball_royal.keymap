@@ -6,8 +6,10 @@
 #include <scroll-snap.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include "input/processors/sensor_rotation.dtsi"
+#include <input/processors/keybind.dtsi>
 
 / {
     default_transform: keymap_transform_0 {
@@ -32,17 +34,17 @@
 
     behaviors {
 
-        // Левая верхняя: tap=MB2, hold=scroll(layer 1)
-        // используется внутри tap-dance ниже
+        // Левая верхняя: tap=MB2, hold=scroll layer
         lt_mb2: lt_mb2 {
             compatible = "zmk,behavior-hold-tap";
+            label = "LT_MB2";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&mkp>;
         };
 
-        // Левая верхняя: 1 tap=MB2 / hold=scroll / быстрый tap+hold=MEH
+        // Левая верхняя: 1 тап/hold=MB2+scroll, быстрый tap+hold=MEH
         td_left_top: td_left_top {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_TOP";
@@ -61,7 +63,7 @@
             bindings = <&kp>, <&mkp>;
         };
 
-        // Левая средняя: tap=переключить text_mode(layer 3), hold=text_mode пока зажата
+        // Левая средняя: tap=залипнуть в text mode, hold=text mode пока зажата
         dpi_text: dpi_text {
             compatible = "zmk,behavior-hold-tap";
             label = "DPI_TEXT";
@@ -75,14 +77,16 @@
             compatible = "zmk,behavior-tap-dance";
             label = "ADJ1";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
+            // 1 тап — след. BT профиль, 2 тапа — USB↔BLE
+            bindings = <&bt BT_NXT>, <&out OUT_TOG>;
         };
 
         adj2: adj2 {
             compatible = "zmk,behavior-tap-dance";
             label = "ADJ2";
             #binding-cells = <0>;
-            bindings = <&bt BT_NXT>, <&bt BT_CLR_ALL>;
+            // 1 тап — BT профиль 0, 2 тапа — очистить все
+            bindings = <&bt BT_SEL 0>, <&bt BT_CLR_ALL>;
         };
     };
 
@@ -91,12 +95,9 @@
 
         base {
             bindings = <
-// left-top               right-top
-&td_left_top              &mkp MB1
-// left-mid               right-mid
-&dpi_text 3 3             &ctrl_mb3 LCTRL MB3
-// left-bot               right-bot
-&adj1                     &adj2
+&td_left_top        &mkp MB1
+&dpi_text 3 3       &ctrl_mb3 LCTRL MB3
+&adj1               &adj2
             >;
             display-name = "Base";
         };
@@ -136,22 +137,28 @@
             #input-processor-cells = <0>;
             rotation-angle = <5>;
         };
+
+        // Text mode: квантование движений в стрелки
+        // threshold=50: накопить 50 единиц движения → 1 нажатие стрелки
+        text_nav: text_nav {
+            compatible = "zmk,input-processor-keybind";
+            #input-processor-cells = <0>;
+            x-bindings = <&kp RIGHT>, <&kp LEFT>;
+            y-bindings = <&kp DOWN>, <&kp UP>;
+            threshold = <50>;
+        };
     };
 };
 
-// CPI снижен вдвое: 500 вместо 1000
-// Включи "Повысить точность указателя" в Windows для ускорения
 &trackball { cpi = <500>; };
 
 &trackball_listener {
-    // Убраны скейлеры: CPI 500 уже достаточно медленный базово
     input-processors = <&sensor_rotation>;
 
     scroller {
         layers = <1>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            // Делитель 1/16 вместо 1/32 — компенсация вдвое сниженного CPI
             <&zip_xy_scaler 1 16>,
             <&zip_xy_to_scroll_mapper &zip_scroll_snap>;
     };
@@ -163,7 +170,6 @@
 
     text_mode {
         layers = <3>;
-        // Очень медленный курсор для точной работы с текстом
-        input-processors = <&zip_xy_scaler 1 8>;
+        input-processors = <&text_nav>;
     };
 };
