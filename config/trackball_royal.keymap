@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "input/processors/sensor_rotation.dtsi"
 
+
 / {
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -22,6 +23,7 @@
         >;
     };
 
+
     combos {
         compatible = "zmk,combos";
         base_combo {
@@ -30,8 +32,9 @@
         };
     };
 
+
     behaviors {
-        // Левая верхняя: tap=MB2, hold=scroll(layer 1)
+        // Правая верхняя: tap=MB2, hold=scroll(layer 1)
         lt_mb2: lt_mb2 {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_MB2";
@@ -41,7 +44,8 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        // Левая верхняя: 1 tap=MB2 / hold=scroll / быстрый 2й tap=MEH
+
+        // Правая верхняя: 1 tap=MB2 / hold=scroll / быстрый 2й tap=MEH
         td_left_top: td_left_top {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_TOP";
@@ -49,6 +53,7 @@
             tapping-term-ms = <200>;
             bindings = <&lt_mb2 1 MB2>, <&kp LS(LA(LCTRL))>;
         };
+
 
         // Правая средняя: tap=MB3, hold=CTRL
         ctrl_mb3: ctrl_mb3 {
@@ -61,6 +66,7 @@
             bindings = <&kp>, <&mkp>;
         };
 
+
         // Правая средняя: tap+hold=MEH, double tap=ничего
         meh_none: meh_none {
             compatible = "zmk,behavior-hold-tap";
@@ -70,6 +76,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&none>;
         };
+
 
         // Правая средняя итого: tap=MB3, hold=CTRL, tap+hold=MEH, double tap=ничего
         td_right_mid: td_right_mid {
@@ -82,6 +89,7 @@
                 <&meh_none LS(LA(LCTRL)) 0>;
         };
 
+
         // Левая средняя: tap=переключить text_mode(layer 3), hold=text_mode пока зажата
         dpi_text: dpi_text {
             compatible = "zmk,behavior-hold-tap";
@@ -92,12 +100,14 @@
             bindings = <&mo>, <&tog>;
         };
 
+
         adj1: adj1 {
             compatible = "zmk,behavior-tap-dance";
             label = "ADJ1";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
         };
+
 
         adj2: adj2 {
             compatible = "zmk,behavior-tap-dance";
@@ -107,17 +117,20 @@
         };
     };
 
+
     keymap {
         compatible = "zmk,keymap";
 
+
         base {
             bindings = <
-&td_left_top   &mkp MB1
+&mkp MB1       &td_left_top
 &dpi_text 3 3  &td_right_mid
 &adj1          &adj2
             >;
             display-name = "Base";
         };
+
 
         scroll {
             bindings = <
@@ -128,6 +141,7 @@
             display-name = "Scroll";
         };
 
+
         sniper {
             bindings = <
 &trans  &trans
@@ -136,6 +150,7 @@
             >;
             display-name = "Sniper";
         };
+
 
         text_mode {
             bindings = <
@@ -147,6 +162,7 @@
         };
     };
 
+
     input_processors {
         sensor_rotation: sensor_rotation {
             compatible = "zmk,input-processor-sensor-rotation";
@@ -157,10 +173,13 @@
     };
 };
 
-&trackball { cpi = <400>; };
+
+&trackball { cpi = <300>; };
+
 
 &trackball_listener {
     input-processors = <&sensor_rotation>;
+
 
     scroller {
         layers = <1>;
@@ -170,10 +189,12 @@
             <&zip_xy_to_scroll_mapper &zip_scroll_snap>;
     };
 
+
     sniper {
         layers = <2>;
         input-processors = <&zip_xy_scaler 1 4>;
     };
+
 
     text_mode {
         layers = <3>;
