@@ -24,15 +24,6 @@
     };
 
 
-    combos {
-        compatible = "zmk,combos";
-        base_combo {
-            bindings = <&mkp MB3>;
-            key-positions = <0 1>;
-        };
-    };
-
-
     behaviors {
         // Правая верхняя: tap=MB2, hold=scroll(layer 1)
         lt_mb2: lt_mb2 {
@@ -174,7 +165,7 @@
 };
 
 
-&trackball { cpi = <300>; };
+&trackball { cpi = <400>; };
 
 
 &trackball_listener {
