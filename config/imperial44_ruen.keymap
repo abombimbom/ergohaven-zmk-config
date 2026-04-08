@@ -236,11 +236,21 @@
         };
 
         sym_en {
+            display-name = "Symbols";
             bindings = <
 &trans          &kp AT           &kp AMPERSAND  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET                    &kp NUBS   &kp FSLH   &kp MINUS  &kp EXCL          &kp CARET      &kp CLCK
 &trans          &kp GRAVE        &none          &kp PRCNT    &none             &kp SQT                              &layer_ru  &kp ASTRK  &kp PLUS   &kp EQUAL         &kp TILDE      &kp INS
 &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RU_NUMERO  &kp AT_SIGN  &kp HASH          &kp DQT            &trans    &trans  &layer_en  &kp LPAR   &kp RPAR   &kp GREATER_THAN  &kp LESS_THAN  &trans
                                                              &trans            &mo 0              &trans    &trans  &trans     &trans
+            >;
+        };
+
+        sym_ru {
+            bindings = <
+&trans          &en AT           &en AMPERSAND  &none        &en LEFT_BRACKET  &en RIGHT_BRACKET                       &kp NUBS   &kp RU_SLASH  &kp MINUS  &kp EXCL          &en CARET      &kp CLCK
+&trans          &en GRAVE        &none          &en PRCNT    &none             &en SQT                                 &layer_ru  &kp ASTRK     &kp PLUS   &kp EQUAL         &en TILDE      &kp INS
+&en LEFT_BRACE  &en RIGHT_BRACE  &kp RU_NUMERO  &en AT_SIGN  &en HASH          &kp RU_DOUBLE_QUOTES  &trans    &trans  &layer_en  &kp LPAR      &kp RPAR   &en GREATER_THAN  &en LESS_THAN  &trans
+                                                             &trans            &mo 0                 &trans    &trans  &trans     &trans
             >;
 
             display-name = "Symbols";
@@ -253,15 +263,6 @@
 &trans          &en GRAVE        &none          &en PRCNT    &none             &en SQT                                 &layer_ru  &kp ASTRK     &kp PLUS   &kp EQUAL         &en TILDE      &kp INS
 &en LEFT_BRACE  &en RIGHT_BRACE  &kp RU_NUMERO  &en AT_SIGN  &en HASH          &kp RU_DOUBLE_QUOTES  &trans    &trans  &layer_en  &kp LPAR      &kp RPAR   &en GREATER_THAN  &en LESS_THAN  &trans
                                                              &trans            &mo 0                 &trans    &trans  &trans     &trans
-            >;
-        };
-
-        shortcut_en {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
