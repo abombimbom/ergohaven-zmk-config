@@ -255,15 +255,15 @@
             >;
         };
 
-        sym_ru {
+        shortcut_en {
             bindings = <
-&trans          &en AT           &en AMPERSAND  &none        &en LEFT_BRACKET  &en RIGHT_BRACKET                       &kp NUBS   &kp RU_SLASH  &kp MINUS  &kp EXCL          &en CARET      &kp CLCK
-&trans          &en GRAVE        &none          &en PRCNT    &none             &en SQT                                 &layer_ru  &kp ASTRK     &kp PLUS   &kp EQUAL         &en TILDE      &kp INS
-&en LEFT_BRACE  &en RIGHT_BRACE  &kp RU_NUMERO  &en AT_SIGN  &en HASH          &kp RU_DOUBLE_QUOTES  &trans    &trans  &layer_en  &kp LPAR      &kp RPAR   &en GREATER_THAN  &en LESS_THAN  &trans
-                                                             &trans            &mo 0                 &trans    &trans  &trans     &trans
+&trans  &kp LC(Q)  &kp LC(W)  &kp LC(E)             &kp LC(R)        &kp LC(T)                     &kp S   &kp T      &kp T           &kp O   &trans  &trans
+&trans  &kp LC(D)  &kp LC(S)  &mt LEFT_SHIFT LG(D)  &mt LCTRL LC(F)  &kp LS(F6)                    &kp H   &kp LCTRL  &kp LEFT_SHIFT  &kp L   &kp L   &trans
+&trans  &trans     &trans     &trans                &kp LC(B)        &kp LG(V)   &trans    &trans  &kp E   &trans     &trans          &trans  &kp F6  &trans
+                                                    &trans           &trans      &trans    &trans  &trans  &trans
             >;
 
-            display-name = "Symbols";
+            label = "shortcut_en";
         };
 
         num {
