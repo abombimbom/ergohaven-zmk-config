@@ -246,32 +246,32 @@
         };
 
         sym_ru {
+            display-name = "Symbols";
             bindings = <
 &trans          &en AT           &en AMPERSAND  &none        &en LEFT_BRACKET  &en RIGHT_BRACKET                       &kp NUBS   &kp RU_SLASH  &kp MINUS  &kp EXCL          &en CARET      &kp CLCK
 &trans          &en GRAVE        &none          &en PRCNT    &none             &en SQT                                 &layer_ru  &kp ASTRK     &kp PLUS   &kp EQUAL         &en TILDE      &kp INS
 &en LEFT_BRACE  &en RIGHT_BRACE  &kp RU_NUMERO  &en AT_SIGN  &en HASH          &kp RU_DOUBLE_QUOTES  &trans    &trans  &layer_en  &kp LPAR      &kp RPAR   &en GREATER_THAN  &en LESS_THAN  &trans
                                                              &trans            &mo 0                 &trans    &trans  &trans     &trans
             >;
-
-            display-name = "Symbols";
         };
 
         sym_ru {
-            display-name = "Symbols";
             bindings = <
 &trans          &en AT           &en AMPERSAND  &none        &en LEFT_BRACKET  &en RIGHT_BRACKET                       &kp NUBS   &kp RU_SLASH  &kp MINUS  &kp EXCL          &en CARET      &kp CLCK
 &trans          &en GRAVE        &none          &en PRCNT    &none             &en SQT                                 &layer_ru  &kp ASTRK     &kp PLUS   &kp EQUAL         &en TILDE      &kp INS
 &en LEFT_BRACE  &en RIGHT_BRACE  &kp RU_NUMERO  &en AT_SIGN  &en HASH          &kp RU_DOUBLE_QUOTES  &trans    &trans  &layer_en  &kp LPAR      &kp RPAR   &en GREATER_THAN  &en LESS_THAN  &trans
                                                              &trans            &mo 0                 &trans    &trans  &trans     &trans
             >;
+
+            display-name = "Symbols";
         };
 
-        macro_en {
+        num {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &kp F7           &kp F8             &kp F9        &kp F10                    &trans  &kp N7              &kp N8                   &kp N9           &kp N0  &trans
+&trans  &trans  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F8  &kp F11                    &trans  &mt LCTRL NUMBER_4  &mt LEFT_SHIFT NUMBER_5  &mt LEFT_ALT N6  &trans  &trans
+&trans  &trans  &kp F1           &kp F2             &kp F3        &kp F12  &trans    &trans  &kp N0  &kp N1              &kp N2                   &kp N3           &trans  &trans
+                                                    &trans        &trans   &trans    &trans  &trans  &trans
             >;
         };
 
