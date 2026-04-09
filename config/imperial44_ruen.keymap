@@ -275,8 +275,8 @@
             >;
         };
 
-        nav_2 {
-            display-name = "Nav";
+        nav_2_bk {
+            display-name = "Nav_bk";
             bindings = <
 &trans  &trans  &kp HOME      &kp UP    &kp END        &kp INS                    &kp PG_UP        &kp N7  &kp N8  &kp N9  &trans  &trans
 &trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT      &kp RET                    &kp PG_DN        &kp N4  &kp N5  &kp N6  &trans  &trans
