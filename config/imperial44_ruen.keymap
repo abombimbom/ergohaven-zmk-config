@@ -5,8 +5,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 &mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
+    quick-tap-ms = <175>;
     flavor = "tap-preferred";
     tapping-term-ms = <170>;
 };
