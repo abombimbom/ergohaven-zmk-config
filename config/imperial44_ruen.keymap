@@ -5,6 +5,18 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        mth: mod_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <100>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -200,10 +212,10 @@
 
         en {
             bindings = <
-&kp ESC       &kp Q  &kp W           &kp E             &kp R        &kp T                                &kp Y            &kp U        &kp I              &kp O            &kp P     &lt 9 LA(SPACE)
-&kp LC(Z)     &kp A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F  &kp G                                &kp H            &mt RCTRL J  &mt RIGHT_SHIFT K  &mt RIGHT_ALT L  &kp SEMI  &caps_word
-&lt 8 DELETE  &kp Z  &kp X           &kp C             &kp V        &kp B        &kp LBKT     &kp RBKT   &kp N            &kp M        &kp COMMA          &kp DOT          &kp SQT   &lt 8 ENTER
-                                                       &lt 3 DOT    &lt 2 SPACE  &lt 6 TAB    &lt 2 ESC  &lt 4 BACKSPACE  &lt 7 COMMA
+&kp ESC       &kp Q  &kp W            &kp E              &kp R        &kp T                                &kp Y            &kp U         &kp I               &kp O             &kp P     &lt 9 LA(SPACE)
+&kp LC(Z)     &kp A  &mth LEFT_ALT S  &mth LEFT_SHIFT D  &mth LCTRL F  &kp G                               &kp H            &mth RCTRL J  &mth RIGHT_SHIFT K  &mth RIGHT_ALT L  &kp SEMI  &caps_word
+&lt 8 DELETE  &kp Z  &kp X            &kp C              &kp V        &kp B        &kp LBKT     &kp RBKT   &kp N            &kp M         &kp COMMA           &kp DOT           &kp SQT   &lt 8 ENTER
+                                                         &lt 3 DOT    &lt 2 SPACE  &lt 6 TAB    &lt 2 ESC  &lt 4 BACKSPACE  &lt 7 COMMA
             >;
 
             display-name = "Base";
@@ -215,19 +227,19 @@
         ru {
             display-name = "Ru";
             bindings = <
-&trans  &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE            &kp RU_CYRILLIC_U              &kp RU_CYRILLIC_KA       &kp RU_CYRILLIC_IE                    &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE        &kp RU_CYRILLIC_SHA            &kp RU_CYRILLIC_SHCHA        &kp RU_CYRILLIC_ZE   &trans
-&trans  &kp RU_CYRILLIC_EF       &mt LEFT_ALT RU_CYRILLIC_YERU  &mt LEFT_SHIFT RU_CYRILLIC_VE  &mt LCTRL RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                    &kp RU_CYRILLIC_ER  &mt LCTRL RU_CYRILLIC_O    &mt LEFT_SHIFT RU_CYRILLIC_EL  &mt LEFT_ALT RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE  &trans
-&trans  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE            &kp RU_CYRILLIC_ES             &kp RU_CYRILLIC_EM       &kp RU_CYRILLIC_I   &trans    &trans  &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_BE             &kp RU_CYRILLIC_YU           &trans               &trans
-                                                                                               &lt 3 RU_DOT             &trans              &trans    &trans  &lt 5 BACKSPACE     &lt 7 RU_COMMA
+&trans  &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U               &kp RU_CYRILLIC_KA        &kp RU_CYRILLIC_IE                    &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE         &kp RU_CYRILLIC_SHA             &kp RU_CYRILLIC_SHCHA         &kp RU_CYRILLIC_ZE   &trans
+&trans  &kp RU_CYRILLIC_EF       &mth LEFT_ALT RU_CYRILLIC_YERU  &mth LEFT_SHIFT RU_CYRILLIC_VE  &mth LCTRL RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                    &kp RU_CYRILLIC_ER  &mth LCTRL RU_CYRILLIC_O    &mth LEFT_SHIFT RU_CYRILLIC_EL  &mth LEFT_ALT RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE  &trans
+&trans  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE             &kp RU_CYRILLIC_ES              &kp RU_CYRILLIC_EM        &kp RU_CYRILLIC_I   &trans    &trans  &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN   &kp RU_CYRILLIC_BE              &kp RU_CYRILLIC_YU            &trans               &trans
+                                                                                                 &lt 3 RU_DOT              &trans              &trans    &trans  &lt 5 BACKSPACE     &lt 7 RU_COMMA
             >;
         };
 
         nav {
             bindings = <
-&kp LC(LS(KP_SLASH))   &kp LC(HOME)  &kp HOME       &kp END             &kp LC(END)  &kp LC(R)                    &ctrl_c_ctrl_r         &kp LC(W)               &kp LA(DOWN)               &kp LA(UP)       &none            &none
-&kp LC(LS(KP_DIVIDE))  &none         &mt LEFT HOME  &mt LEFT_SHIFT END  &kp LCTRL    &kp LC(RET)                  &select_row            &mt LCTRL LEFT_ARROW    &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &none
-&kp LC(KP_DIVIDE)      &kp LC(A)     &kp LC(X)      &kp LC(C)           &kp LC(V)    &kp LC(DEL)  &none    &none  &copy_word             &kp LC(D)               &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &none            &none
-                                                                        &none        &none        &none    &none  &kp LC(LS(BACKSPACE))  &kp LC(LA(LEFT_ARROW))
+&kp LC(LS(KP_SLASH))   &kp LC(HOME)  &kp HOME        &kp END              &kp LC(END)  &kp LC(R)                    &ctrl_c_ctrl_r         &kp LC(W)                &kp LA(DOWN)               &kp LA(UP)        &none            &none
+&kp LC(LS(KP_DIVIDE))  &none         &mth LEFT HOME  &mth LEFT_SHIFT END  &kp LCTRL    &kp LC(RET)                  &select_row            &mth LCTRL LEFT_ARROW    &mth LEFT_SHIFT DOWN_ARROW  &mth LEFT_ALT UP  &kp RIGHT_ARROW  &none
+&kp LC(KP_DIVIDE)      &kp LC(A)     &kp LC(X)       &kp LC(C)            &kp LC(V)    &kp LC(DEL)  &none    &none  &copy_word             &kp LC(D)                &kp LA(LS(DOWN_ARROW))      &kp LS(LA(UP))    &none            &none
+                                                                          &none        &none        &none    &none  &kp LC(LS(BACKSPACE))  &kp LC(LA(LEFT_ARROW))
             >;
 
             display-name = "Nav";
@@ -236,9 +248,9 @@
         nav_2 {
             display-name = "Nav_2";
             bindings = <
-&kp LC(LS(KP_SLASH))   &kp LC(LS(HOME))        &kp LS(HOME)  &kp LS(END)         &kp LC(LS(END))          &trans                    &ctrl_c_ctrl_r  &kp LC(W)             &kp LA(DOWN)               &kp LA(UP)       &trans           &trans
-&kp LC(LS(KP_DIVIDE))  &kp LS(LC(LEFT_ARROW))  &kp LS(UP)    &kp LS(DOWN_ARROW)  &kp LS(LC(RIGHT_ARROW))  &trans                    &select_row     &mt LCTRL LEFT_ARROW  &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &trans
-&kp LC(KP_DIVIDE)      &trans                  &trans        &trans              &trans                   &trans  &trans    &trans  &copy_word      &kp LC(D)             &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &trans           &trans
+&kp LC(LS(KP_SLASH))   &kp LC(LS(HOME))        &kp LS(HOME)  &kp LS(END)         &kp LC(LS(END))          &trans                    &ctrl_c_ctrl_r  &kp LC(W)              &kp LA(DOWN)                &kp LA(UP)        &trans           &trans
+&kp LC(LS(KP_DIVIDE))  &kp LS(LC(LEFT_ARROW))  &kp LS(UP)    &kp LS(DOWN_ARROW)  &kp LS(LC(RIGHT_ARROW))  &trans                    &select_row     &mth LCTRL LEFT_ARROW  &mth LEFT_SHIFT DOWN_ARROW  &mth LEFT_ALT UP  &kp RIGHT_ARROW  &trans
+&kp LC(KP_DIVIDE)      &trans                  &trans        &trans              &trans                   &trans  &trans    &trans  &copy_word      &kp LC(D)              &kp LA(LS(DOWN_ARROW))      &kp LS(LA(UP))    &trans           &trans
                                                                                  &trans                   &trans  &trans    &trans  &trans          &trans
             >;
         };
@@ -265,10 +277,10 @@
 
         shortcut_en {
             bindings = <
-&trans  &kp LC(Q)  &kp LC(W)  &kp LC(E)             &kp LC(R)        &kp LC(T)                     &kp S   &kp T      &kp T           &kp O   &trans  &trans
-&trans  &kp LC(D)  &kp LC(S)  &mt LEFT_SHIFT LG(D)  &mt LCTRL LC(F)  &kp LS(F6)                    &kp H   &kp LCTRL  &kp LEFT_SHIFT  &kp L   &kp L   &trans
-&trans  &trans     &trans     &trans                &kp LC(B)        &kp LG(V)   &trans    &trans  &kp E   &trans     &trans          &trans  &kp F6  &trans
-                                                    &trans           &trans      &trans    &trans  &trans  &trans
+&trans  &kp LC(Q)  &kp LC(W)  &kp LC(E)              &kp LC(R)         &kp LC(T)                     &kp S   &kp T      &kp T           &kp O   &trans  &trans
+&trans  &kp LC(D)  &kp LC(S)  &mth LEFT_SHIFT LG(D)  &mth LCTRL LC(F)  &kp LS(F6)                    &kp H   &kp LCTRL  &kp LEFT_SHIFT  &kp L   &kp L   &trans
+&trans  &trans     &trans     &trans                 &kp LC(B)         &kp LG(V)   &trans    &trans  &kp E   &trans     &trans          &trans  &kp F6  &trans
+                                                     &trans            &trans      &trans    &trans  &trans  &trans
             >;
 
             label = "shortcut_en";
@@ -276,10 +288,10 @@
 
         num {
             bindings = <
-&trans  &trans  &kp F7           &kp F8             &kp F9        &kp F10                    &trans  &kp N7              &kp N8                   &kp N9           &kp N0  &trans
-&trans  &trans  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F8  &kp F11                    &trans  &mt LCTRL NUMBER_4  &mt LEFT_SHIFT NUMBER_5  &mt LEFT_ALT N6  &trans  &trans
-&trans  &trans  &kp F1           &kp F2             &kp F3        &kp F12  &trans    &trans  &kp N0  &kp N1              &kp N2                   &kp N3           &trans  &trans
-                                                    &trans        &trans   &trans    &trans  &trans  &trans
+&trans  &trans  &kp F7            &kp F8              &kp F9         &kp F10                    &trans  &kp N7               &kp N8                    &kp N9            &kp N0  &trans
+&trans  &trans  &mth LEFT_ALT F4  &mth LEFT_SHIFT F5  &mth LCTRL F8  &kp F11                    &trans  &mth LCTRL NUMBER_4  &mth LEFT_SHIFT NUMBER_5  &mth LEFT_ALT N6  &trans  &trans
+&trans  &trans  &kp F1            &kp F2              &kp F3         &kp F12  &trans    &trans  &kp N0  &kp N1               &kp N2                    &kp N3            &trans  &trans
+                                                      &trans         &trans   &trans    &trans  &trans  &trans
             >;
         };
 
