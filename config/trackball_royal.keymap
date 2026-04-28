@@ -185,11 +185,16 @@
 
 
 &trackball_listener {
-    input-processors = <&sensor_rotation>;
+
+    base_move {
+        layers = <0>;
+        input-processors = <&sensor_rotation>;
+    };
 
     scroller {
         layers = <1>;
         input-processors =
+            <&sensor_rotation>,
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
             <&zip_xy_scaler 1 16>,
             <&zip_xy_to_scroll_mapper &zip_scroll_snap>;
@@ -197,7 +202,9 @@
 
     sniper {
         layers = <2>;
-        input-processors = <&zip_xy_scaler 1 4>;
+        input-processors =
+            <&sensor_rotation>,
+            <&zip_xy_scaler 1 4>;
     };
 
     text_mode {
