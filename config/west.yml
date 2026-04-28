@@ -2,10 +2,15 @@ manifest:
   remotes:
     - name: ergohaven
       url-base: https://github.com/ergohaven
+    - name: te9no
+      url-base: https://github.com/te9no
   projects:
     - name: ergohaven-zmk
       remote: ergohaven
       revision: main
       import: config/west.yml
+    - name: zmk-input-processor-keybind
+      remote: te9no
+      revision: main
   self:
     path: config
