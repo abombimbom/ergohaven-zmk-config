@@ -234,7 +234,7 @@
             bindings = <
 &kp LC(LS(KP_SLASH))   &kp LC(HOME)  &kp HOME       &kp END             &kp LC(END)  &kp LC(R)                    &ctrl_c_ctrl_r         &kp LC(W)               &kp LA(DOWN)               &kp LA(UP)       &none            &none
 &kp LC(LS(KP_DIVIDE))  &none         &mt LEFT HOME  &mt LEFT_SHIFT END  &kp LCTRL    &kp LC(RET)                  &select_row            &mt LCTRL LEFT_ARROW    &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &none
-&kp LC(KP_DIVIDE)      &kp LC(A)     &kp LC(X)      &kp LC(C)           &kp LC(V)    &kp LC(DEL)  &none    &none  &copy_word             &kp LC(D)               &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &none            &none
+&kp LC(KP_DIVIDE)      &kp LC(A)     &kp LC(X)      &kp LC(C)           &kp LC(V)    &kp LC(B)    &none    &none  &copy_word             &kp LC(D)               &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &none            &none
                                                                         &none        &none        &none    &none  &kp LC(LS(BACKSPACE))  &kp LC(LA(LEFT_ARROW))
             >;
 
