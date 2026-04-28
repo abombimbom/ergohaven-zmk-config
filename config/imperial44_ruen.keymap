@@ -5,14 +5,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 &mt {
-quick-tap-ms = <250>;
-flavor = "tap-preferred";
-tapping-term-ms = <170>;
+    quick-tap-ms = <250>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <170>;
 };
 
-&lt {
-quick-tap-ms = <250>;
-};
+&lt { quick-tap-ms = <250>; };
 
 / {
     combos {
@@ -275,10 +273,10 @@ quick-tap-ms = <250>;
 
         shortcut_en {
             bindings = <
-&trans  &kp LC(Q)  &kp LC(W)  &kp LC(E)             &kp LC(R)        &kp LC(T)                     &kp S   &kp T      &kp T           &kp O   &trans  &trans
-&trans  &kp LC(D)  &kp LC(S)  &mt LEFT_SHIFT LG(D)  &mt LCTRL LC(F)  &kp LS(F6)                    &kp H   &kp LCTRL  &kp LEFT_SHIFT  &kp L   &kp L   &trans
-&trans  &trans     &trans     &trans                &kp LC(B)        &kp LG(V)   &trans    &trans  &kp E   &trans     &trans          &trans  &kp F6  &trans
-                                                    &trans           &trans      &trans    &trans  &trans  &trans
+&trans  &kp LC(Q)  &kp LC(W)  &kp LC(E)             &kp LC(R)        &kp LC(T)                     &kp S      &kp T      &kp T           &kp O   &trans  &trans
+&trans  &kp LC(D)  &kp LC(S)  &mt LEFT_SHIFT LG(D)  &mt LCTRL LC(F)  &kp LS(F6)                    &kp LC(H)  &kp LCTRL  &kp LEFT_SHIFT  &kp L   &kp L   &trans
+&trans  &trans     &trans     &trans                &kp LC(B)        &kp LG(V)   &trans    &trans  &kp E      &trans     &trans          &trans  &kp F6  &trans
+                                                    &trans           &trans      &trans    &trans  &trans     &trans
             >;
 
             label = "shortcut_en";
