@@ -201,6 +201,13 @@
             bindings = <&kp LC(LEFT_ARROW) &kp LC(RIGHT_ARROW) &kp LC(C)>;
             label = "COPY_WORD";
         };
+
+        test_macro: test_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&layer_en &kp S &kp A &kp N &kp D &kp B &kp O &kp X &kp UNDER &kp D &kp O &kp M &kp DOT &kp N &kp P &kp UNDER>;
+            label = "TEST_MACRO";
+        };
     };
 
     keymap {
