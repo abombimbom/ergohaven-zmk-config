@@ -236,7 +236,9 @@
                                                                                                    &lt 3 RU_DOT             &trans              &trans    &trans  &lt 5 BACKSPACE     &lt 7 RU_COMMA
             >;
 
-            sensor-bindings = <&inc_dec_kp 0 0>, <&inc_dec_kp 0 0>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp PAGE_DOWN PAGE_UP>;
         };
 
         nav {
