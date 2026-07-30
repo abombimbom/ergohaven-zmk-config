@@ -65,7 +65,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RIGHT_MID";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <240>;
             bindings =
                 <&ctrl_mb3 LCTRL MB3>,
                 <&meh_none LS(LA(LCTRL)) 0>;
