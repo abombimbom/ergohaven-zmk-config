@@ -177,11 +177,7 @@
 
 
 &trackball_listener {
-
-    base_move {
-        layers = <0>;
-        input-processors = <&sensor_rotation>;
-    };
+    input-processors = <&sensor_rotation>;
 
     scroller {
         layers = <1>;
