@@ -25,7 +25,6 @@
 
 
     behaviors {
-        /* --- Левая верхняя клавиша: hold -> слой scroll, tap -> MB2 / Ctrl+Alt+Shift --- */
         td_left_tap: td_left_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_TAP";
@@ -44,13 +43,23 @@
             bindings = <&mo>, <&td_left_tap>;
         };
 
-        /* --- Правая средняя клавиша: hold -> Ctrl (MB3), tap-dance -> MB3 / Meh --- */
+        meh_none: meh_none {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MEH_NONE";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&none>;
+        };
+
         td_right_tap: td_right_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RIGHT_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <240>;
-            bindings = <&mkp MB3>, <&none>;
+            bindings =
+                <&mkp MB3>,
+                <&meh_none LS(LA(LCTRL)) 0>;
         };
 
         ctrl_td_right: ctrl_td_right {
