@@ -25,50 +25,42 @@
 
 
     behaviors {
-        lt_mb2: lt_mb2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT_MB2";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&mkp>;
-        };
-
-        td_left_top: td_left_top {
+        /* --- Левая верхняя клавиша: hold -> слой scroll, tap -> MB2 / Ctrl+Alt+Shift --- */
+        td_left_tap: td_left_tap {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_LEFT_TOP";
+            label = "TD_LEFT_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&lt_mb2 1 MB2>, <&kp LS(LA(LCTRL))>;
+            bindings = <&mkp MB2>, <&kp LS(LA(LCTRL))>;
         };
 
-        ctrl_mb3: ctrl_mb3 {
+        lt_td_left: lt_td_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "CTRL_MB3";
+            label = "LT_TD_LEFT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <125>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&td_left_tap>;
+        };
+
+        /* --- Правая средняя клавиша: hold -> Ctrl (MB3), tap-dance -> MB3 / Meh --- */
+        td_right_tap: td_right_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RIGHT_TAP";
+            #binding-cells = <0>;
+            tapping-term-ms = <240>;
+            bindings = <&mkp MB3>, <&none>;
+        };
+
+        ctrl_td_right: ctrl_td_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CTRL_TD_RIGHT";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
-            bindings = <&kp>, <&mkp>;
-        };
-
-        meh_none: meh_none {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MEH_NONE";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&none>;
-        };
-
-        td_right_mid: td_right_mid {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_RIGHT_MID";
-            #binding-cells = <0>;
-            tapping-term-ms = <240>;
-            bindings =
-                <&ctrl_mb3 LCTRL MB3>,
-                <&meh_none LS(LA(LCTRL)) 0>;
+            bindings = <&kp>, <&td_right_tap>;
         };
 
         dpi_text: dpi_text {
@@ -134,9 +126,9 @@
 
         base {
             bindings = <
-&mkp MB1       &td_left_top
-&dpi_text 2 2  &td_right_mid
-&adj1          &adj2
+&mkp MB1              &lt_td_left 1 0
+&dpi_text 2 2         &ctrl_td_right LCTRL 0
+&adj1                 &adj2
             >;
             display-name = "Base";
         };
