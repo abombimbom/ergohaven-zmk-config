@@ -271,10 +271,10 @@
         sym_en {
             display-name = "Symbols";
             bindings = <
-&trans          &kp AT           &kp AMPERSAND  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET                    &kp NUBS   &kp FSLH   &kp MINUS  &kp EXCL       &kp CARET         &kp CLCK
-&trans          &kp GRAVE        &none          &kp PRCNT    &none             &kp SQT                              &layer_ru  &kp ASTRK  &kp PLUS   &kp EQUAL      &kp TILDE         &kp INS
-&kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RU_NUMERO  &kp AT_SIGN  &kp HASH          &kp DQT            &trans    &trans  &layer_en  &kp LPAR   &kp RPAR   &kp LESS_THAN  &kp GREATER_THAN  &trans
-                                                             &trans            &mo 9              &trans    &trans  &trans     &trans
+&trans          &kp AT           &kp AMPERSAND        &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET                    &kp NUBS   &kp FSLH   &kp MINUS  &kp EXCL       &kp CARET         &kp CLCK
+&trans          &kp GRAVE        &mt LEFT_ALT DOLLAR  &kp PRCNT    &none             &kp SQT                              &layer_ru  &kp ASTRK  &kp PLUS   &kp EQUAL      &kp TILDE         &kp INS
+&kp LEFT_BRACE  &kp RIGHT_BRACE  &kp RU_NUMERO        &kp AT_SIGN  &kp HASH          &kp DQT            &trans    &trans  &layer_en  &kp LPAR   &kp RPAR   &kp LESS_THAN  &kp GREATER_THAN  &trans
+                                                                   &trans            &mo 9              &trans    &trans  &trans     &trans
             >;
         };
 
