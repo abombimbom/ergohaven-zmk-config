@@ -100,8 +100,8 @@
             layers = <0 1>;
         };
 
-        yo {
-            bindings = <&kp RU_CYRILLIC_IO>;
+        ru_coma {
+            bindings = <&kp RU_COMMA>;
             key-positions = <4 3>;
             layers = <1>;
         };
@@ -122,6 +122,12 @@
             bindings = <&kp RU_CYRILLIC_E>;
             key-positions = <21 22>;
             layers = <1>;
+        };
+
+        en_comma {
+            bindings = <&kp COMMA>;
+            key-positions = <4 3>;
+            layers = <0>;
         };
     };
 
