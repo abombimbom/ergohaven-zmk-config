@@ -266,10 +266,10 @@
         nav_2 {
             display-name = "Nav_2";
             bindings = <
-&kp LC(LS(KP_SLASH))   &kp LC(LS(HOME))        &kp LS(HOME)  &kp LS(END)  &kp LC(LS(END))          &trans                    &ctrl_c_ctrl_r  &kp LC(W)             &kp LA(DOWN)               &kp LA(UP)       &trans           &trans
-&kp LC(LS(KP_DIVIDE))  &kp LS(LC(LEFT_ARROW))  &kp LS(HOME)  &kp LS(END)  &kp LS(LC(RIGHT_ARROW))  &trans                    &select_row     &mt LCTRL LEFT_ARROW  &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &trans
-&kp LC(KP_DIVIDE)      &kp ENTER               &trans        &trans       &kp LC(ENTER)            &trans  &trans    &trans  &copy_word      &kp LC(D)             &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &trans           &trans
-                                                                          &trans                   &trans  &trans    &trans  &trans          &trans
+&kp LC(LS(KP_SLASH))   &kp LC(LS(HOME))        &kp LS(HOME)  &kp LS(END)    &kp LC(LS(END))          &trans                    &ctrl_c_ctrl_r  &kp LC(W)             &kp LA(DOWN)               &kp LA(UP)       &trans           &trans
+&kp LC(LS(KP_DIVIDE))  &kp LS(LC(LEFT_ARROW))  &kp LS(HOME)  &kp LS(END)    &kp LS(LC(RIGHT_ARROW))  &trans                    &select_row     &mt LCTRL LEFT_ARROW  &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &trans
+&kp LC(KP_DIVIDE)      &kp ENTER               &trans        &kp BACKSPACE  &kp LC(ENTER)            &trans  &trans    &trans  &copy_word      &kp LC(D)             &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &trans           &trans
+                                                                            &trans                   &trans  &trans    &trans  &trans          &trans
             >;
         };
 
