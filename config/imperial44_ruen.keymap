@@ -10,7 +10,12 @@
     tapping-term-ms = <170>;
 };
 
-&lt { quick-tap-ms = <250>; };
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <170>;
+    quick-tap-ms = <150>;
+    require-prior-idle-ms = <120>;
+};
 
 / {
     combos {
