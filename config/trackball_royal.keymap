@@ -23,12 +23,13 @@
     };
 
     behaviors {
+        // Кнопка 2: тап = MB3, холд = scroll layer, тап+холд = зажатый Ctrl+Alt+Shift
         td_left_tap: td_left_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mkp MB2>, <&kp LS(LA(LCTRL))>;
+            bindings = <&mkp MB3>, <&kp LS(LA(LCTRL))>;
         };
 
         lt_td_left: lt_td_left {
@@ -41,49 +42,24 @@
             bindings = <&mo>, <&td_left_tap>;
         };
 
-        meh_none: meh_none {
+        // Кнопка 3: тап = tog sniper layer, холд = зажатая MB3
+        mmb_sniper: mmb_sniper {
             compatible = "zmk,behavior-hold-tap";
-            label = "MEH_NONE";
+            label = "MMB_SNIPER";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&none>;
+            bindings = <&mkp>, <&tog>;
         };
 
-        td_right_tap: td_right_tap {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_RIGHT_TAP";
-            #binding-cells = <0>;
-            tapping-term-ms = <240>;
-            bindings = <&mkp MB3>, <&meh_none LS(LA(LCTRL)) 0>;
-        };
-
-        ctrl_td_right: ctrl_td_right {
+        // Кнопка 4: тап = MB2 (ПКМ), холд = mo scroll layer (как у кнопки 2)
+        mo_rmb: mo_rmb {
             compatible = "zmk,behavior-hold-tap";
-            label = "CTRL_TD_RIGHT";
+            label = "MO_RMB";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            bindings = <&kp>, <&td_right_tap>;
-        };
-
-        dpi_text: dpi_text {
-            compatible = "zmk,behavior-hold-tap";
-            label = "DPI_TEXT";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
-        };
-
-        shift_mb1: shift_mb1 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SHIFT_MB1";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&mkp>;
+            bindings = <&mo>, <&mkp>;
         };
 
         adj1: adj1 {
@@ -101,26 +77,14 @@
         };
     };
 
-    zip_keybind_keys: zip_keybind_keys {
-        compatible = "zmk,input-processor-keybind";
-        #input-processor-cells = <0>;
-        track_remainders;
-        mode = <1>;
-        bindings = <&kp RIGHT>, <&kp LEFT>, <&kp UP>, <&kp DOWN>;
-
-        tick = <40>;
-        wait-ms = <0>;
-        tap-ms = <10>;
-    };
-
     combos {
         compatible = "zmk,combos";
 
-        combo_text_mode {
+        combo_ctrl {
             timeout-ms = <50>;
-            key-positions = <2 3>;
-            bindings = <&tog 3>;
-            layers = <0 3>;
+            key-positions = <1 3>;
+            bindings = <&kp LCTRL>;
+            layers = <0>;
         };
     };
 
@@ -129,9 +93,9 @@
 
         base {
             bindings = <
-&mkp MB1       &lt_td_left 1 0
-&dpi_text 1 0  &ctrl_td_right LCTRL 0
-&adj1          &adj2
+&mkp MB1        &lt_td_left 1 0
+&mmb_sniper MB3 2  &mo_rmb 1 MB2
+&adj1           &adj2
             >;
 
             display-name = "Base";
@@ -155,16 +119,6 @@
             >;
 
             display-name = "Sniper";
-        };
-
-        text_mode {
-            bindings = <
-&shift_mb1 LSHIFT MB1  &trans
-&trans                 &trans
-&trans                 &trans
-            >;
-
-            display-name = "Text";
         };
     };
 
@@ -195,10 +149,5 @@
     sniper {
         layers = <2>;
         input-processors = <&sensor_rotation>, <&zip_xy_scaler 1 4>;
-    };
-
-    text_mode {
-        layers = <3>;
-        input-processors = <&zip_keybind_keys>;
     };
 };
