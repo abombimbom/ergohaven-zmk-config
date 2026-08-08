@@ -122,11 +122,6 @@
             bindings = <&tog 3>;
             layers = <0 3>;
         };
-
-        text {
-            bindings = <&dpi_text 3 3>;
-            key-positions = <0 1>;
-        };
     };
 
     keymap {
@@ -135,7 +130,7 @@
         base {
             bindings = <
 &mkp MB1       &lt_td_left 1 0
-&dpi_text 2 2  &ctrl_td_right LCTRL 0
+&dpi_text 1 0  &ctrl_td_right LCTRL 0
 &adj1          &adj2
             >;
 
