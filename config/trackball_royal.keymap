@@ -23,12 +23,12 @@
     };
 
     behaviors {
-        // Кнопка 2: тап = MB3, холд = scroll layer, тап+холд = зажатый Ctrl+Alt+Shift
+        // Кнопка 2: тап = MB3, холд = scroll layer, тап+холд = Ctrl+Alt+Shift (best-effort, не всегда стабильно)
         td_left_tap: td_left_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LEFT_TAP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <130>;
             bindings = <&mkp MB3>, <&kp LS(LA(LCTRL))>;
         };
 
@@ -37,8 +37,8 @@
             label = "LT_TD_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <125>;
-            quick-tap-ms = <125>;
+            tapping-term-ms = <90>;
+            quick-tap-ms = <90>;
             bindings = <&mo>, <&td_left_tap>;
         };
 
@@ -50,16 +50,6 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&mkp>, <&tog>;
-        };
-
-        // Кнопка 4: тап = MB2 (ПКМ), холд = mo scroll layer (как у кнопки 2)
-        mo_rmb: mo_rmb {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MO_RMB";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&mkp>;
         };
 
         adj1: adj1 {
@@ -93,9 +83,9 @@
 
         base {
             bindings = <
-&mkp MB1        &lt_td_left 1 0
-&mmb_sniper MB3 2  &mo_rmb 1 MB2
-&adj1           &adj2
+&mkp MB1           &lt_td_left 1 0
+&mmb_sniper MB3 2  &mkp MB2
+&adj1              &adj2
             >;
 
             display-name = "Base";
