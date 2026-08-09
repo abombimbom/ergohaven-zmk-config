@@ -7,7 +7,7 @@ include:
     shield: imperial44_left_qube
 
   - board: ergohaven
-    shield: imperial44_qube qube dongle_screen trackball_sensor
+    shield: trackball_kscan dongle_screen trackball_sensor
     keymap: imperial44_trackball
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
