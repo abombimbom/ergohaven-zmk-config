@@ -10,7 +10,7 @@ include:
     shield: trackball_dongle
     keymap: trackball_dongle
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_KEYBOARD_NAME=\"EH\ TB\ Dongle\ TEST\"
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_KEYBOARD_NAME=\"EH\ TB\ Dongle\"
     artifact-name: trackball_dongle_test-ergohaven-zmk
 
   - board: ergohaven
