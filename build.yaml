@@ -7,17 +7,10 @@ include:
     shield: imperial44_left_qube
 
   - board: ergohaven
-    shield: trackball_dongle
-    keymap: trackball_dongle
+    shield: imperial44_qube qube dongle_screen trackball_sensor
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_KEYBOARD_NAME=\"EH\ TB\ Dongle\"
-    artifact-name: trackball_dongle_test-ergohaven-zmk
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: imperial44_trackball_central-ergohaven-zmk
 
   - board: ergohaven
     shield: settings_reset
-
-  - board: ergohaven
-    shield: imperial44_qube qube dongle_screen
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: imperial44_qube_ORIGINAL_TEST-ergohaven-zmk
