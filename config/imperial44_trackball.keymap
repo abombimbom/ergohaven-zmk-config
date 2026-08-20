@@ -314,7 +314,7 @@
 
         nav {
             bindings = <
-&kp LC(LS(KP_SLASH))   &kp LC(HOME)  &kp HOME       &kp END             &kp LC(END)  &kp LC(R)                                     &ctrl_c_ctrl_r         &kp LC(W)                &kp LA(DOWN)               &kp LA(UP)       &none            &none
+&kp LC(LS(KP_SLASH))   &kp LC(HOME)  &kp HOME       &kp END             &kp LC(END)  &kp LC(R)                                     &ctrl_c_ctrl_r         &kp LA(W)                &kp LA(DOWN)               &kp LA(UP)       &kp LA(LS(J))    &none
 &kp LC(LS(KP_DIVIDE))  &none         &mt LEFT HOME  &mt LEFT_SHIFT END  &kp LCTRL    &kp LC(RET)                                   &copy_word             &mt LCTRL LEFT_ARROW     &mt LEFT_SHIFT DOWN_ARROW  &mt LEFT_ALT UP  &kp RIGHT_ARROW  &none
 &kp LC(KP_DIVIDE)      &kp LC(A)     &kp LC(X)      &kp LC(C)           &kp LC(V)    &kp LC(B)    &none    &none                   &select_row            &kp LC(D)                &kp LA(LS(DOWN_ARROW))     &kp LS(LA(UP))   &none            &none
                                                                         &none        &none        &none    &kp LC(LA(LEFT_ARROW))  &kp LC(LS(BACKSPACE))  &kp LC(LA(RIGHT_ARROW))
